@@ -35,7 +35,9 @@ int main()
     }
 
     // 2. Perform the HTTP CONNECT handshake and authentication.
-    //    Returns a valid raw SOCKET on success, or SOCKET_ERROR on failure.
+    //    Returns a valid raw SOCKET only if the connection through the proxy was successfully established.
+    //    Returns SOCKET_ERROR on failure (e.g., authentication failed or host unreachable).
+    SOCKET
     SOCKET rawSocket = tunnel.createTunnel();
     
     if (rawSocket == SOCKET_ERROR) {
